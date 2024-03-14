@@ -24,8 +24,9 @@
 <meta property="og:description" content="Event Function:事件函数 &#x2F;&#x2F;即生命周期函数Awake() : 始终在任何 Start 函数之前（开始渲染之前）并在实例化预制件之后（一些manager脚本、网络等）调用此函数。如果游戏对象在启动期间处于非活动状态，则在激活之后才会调用 Awake。OnEnable() : 当将物体的SetActive设置为true时就会自动调用调用该方法。Awake()、Sta">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-23T18:53:41.000Z">
-<meta property="article:modified_time" content="2024-02-23T18:56:43.182Z">
+<meta property="article:modified_time" content="2024-03-14T20:58:09.711Z">
 <meta property="article:author" content="Cyber Dove">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -308,7 +309,7 @@
 <li>添加组件<br><code>new GameObject(name);</code><br><code>name.AddComponent&lt;组件名&gt;();</code><br><code>name.AddComponent&lt;脚本名&gt;();</code></li>
 <li>属性和变量<br><code>object.name</code>：对象的名称。<br><code>GameObject.SetActive(false/true)</code> ：通过参数的控制来设置其游戏物体的激活状态，true为激活状态，反之为取消激活状态。<br><code>GameObject.activeInHierarchy</code>： 游戏物体是否处于激活状态，与父类有关，父类被取消激活，则子类也是取消激活的。<br><code>GameObject.activeSelf</code> ： 自身的激活状态，与父类无关，只与自身有关。<br><code>GameObject.tag</code>： 游戏物体的tag标签，具体的由程序员自定义设置。</li>
 <li>静态函数,共有方法，变量<br><code>Destroy()</code> ：删除游戏物体，但是不会立马在unity中删除，而是会先进行回收，等确定没对象使用的时候，在进行删除<br><code>DontDestroyOnLoad()</code> ： 当加载新的场景的时候，不删除这个场景中的某个游戏物体<br><code>FindObjectOfType\&lt;T&gt;()</code> ：通过类型T来进行查找对象，返回的是一个对象<br><code>FindObjectsOfType\&lt;T&gt;()</code>：通过类型T来进行查找对象，返回类型为Type的所有活动加载对象的列表。<br><code>FindGameObjectWithTag()</code> ：返回标记的Tag活动游戏对象。<br><code>FindGameObjectsWithTag()</code> ：返回标记的Tag活动游戏对象列表。如果没有GameObject(游戏物体)返回空数组</li>
-<li>消息发送<br><code>BroadcastMessage()</code> ：广播发送消息，则该物体上对应的方法会被调用，同时这个游戏物体上的子物体上对应的方法也会被调用的<br><code>SendMessage() </code>：发送消息，只会对这个游戏物体中脚本上的方法发送消息<br>SendMessageUpwards()： 广播发送消息，但是和BroadcastMessage()是相反的，在调用自身的方法时也会向上传递，调用其父类的方法</li>
+<li>消息发送<br><code>BroadcastMessage()</code> ：广播发送消息，则该物体上对应的方法会被调用，同时这个游戏物体上的子物体上对应的方法也会被调用的<br><code>SendMessage()</code>：发送消息，只会对这个游戏物体中脚本上的方法发送消息<br>SendMessageUpwards()： 广播发送消息，但是和BroadcastMessage()是相反的，在调用自身的方法时也会向上传递，调用其父类的方法</li>
 <li>查找组件<br>&#x2F;&#x2F;1、返回一个对应的组件，如果有多个，则只返回第一个<br><code>Cube cube = target.GetComponent\&lt;Cube&gt;();</code><br>&#x2F;&#x2F;2、返回该游戏物体上所有符合条件的组件，返回一个组件数组<br><code>Cube[] cc= target.GetComponents\&lt;Cube&gt;();</code><br>&#x2F;&#x2F;3、返回该游戏物体上的对应组件，同时返回该游戏物体的子类上对应的组件<br><code>Cube[] xx = target.GetComponentsInChildren\&lt;Cube&gt;();</code><br>&#x2F;&#x2F;4、返回该游戏物体上的对应组件，同时返回该游戏物体的父类上对应的组件<br><code>Cube[] yy = target.GetComponentsInParent\&lt;Cube&gt;();</code></li>
 </ul>
 <h2 id="MonoBehaviours类"><a href="#MonoBehaviours类" class="headerlink" title="MonoBehaviours类"></a>MonoBehaviours类</h2><ul>
@@ -326,7 +327,7 @@
 <ul>
 <li>定义协程</li>
 </ul>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C#">IEnumerator 方法名()<br>&#123;<br>	<span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span> ;<br>	<span class="hljs-function"><span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title">WaitForSeconds</span>(<span class="hljs-params"><span class="hljs-number">1.0f</span></span>)</span>; <br>	<span class="hljs-comment">//等待一定[[模板/时间|时间]]再运行后面的代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C#">IEnumerator 方法名()<br>&#123;<br>  <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span> ;<br>  <span class="hljs-function"><span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title">WaitForSeconds</span>(<span class="hljs-params"><span class="hljs-number">1.0f</span></span>)</span>; <br>  <span class="hljs-comment">//等待一定[[模板/时间|时间]]再运行后面的代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs C#"> <span class="hljs-comment">//通过迭代器定义一个方法</span><br><span class="hljs-function">IEnumerator <span class="hljs-title">Demo</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> i</span>)</span><br>&#123;<br>    <span class="hljs-comment">//代码块</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br> <span class="hljs-comment">//代码块</span><br>&#125;<br><br><span class="hljs-comment">//在程序种调用协程</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Test</span>()</span><br>&#123;<br>    <span class="hljs-comment">//第一种与第二种调用方式,通过方法名与参数调用</span><br>    StartCoroutine(<span class="hljs-string">&quot;Demo&quot;</span>, <span class="hljs-number">1</span>);<br><br>    <span class="hljs-comment">//第三种调用方式， 通过调用方法直接调用</span><br>    StartCoroutine(Demo(<span class="hljs-number">1</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -397,6 +398,13 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Unity/" class="print-no-link">#Unity</a>
+      
+    </div>
+  
 </div>
 
 
@@ -449,6 +457,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/03/15/Unity%20%E7%BB%91%E5%AE%9A(%E8%AE%A2%E9%98%85)%E4%BA%8B%E4%BB%B6%E6%96%B9%E5%BC%8F/" title="Unity 绑定（订阅）事件方式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Unity 绑定（订阅）事件方式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
