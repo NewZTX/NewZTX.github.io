@@ -24,7 +24,7 @@
 <meta property="og:description" content="文件结构sln:解决方案文件，里面包含整个解决方案的信息，可以双击运行.csproj:项目文件，里面包含着这个项目的信息，可以双击运行 书写代码需要注意的地方 代码中出现的所有标点都是英文半角 shift键快速切换中文半角和英文半角shift+”空格”切换全角&#x2F;半角 在C#中，每行代码都以 ; 分号结束，注意：这个分号也是英文半角的符号 Console.WriteLine(“要打印的内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-24T02:35:13.368Z">
-<meta property="article:modified_time" content="2024-07-24T04:24:31.944Z">
+<meta property="article:modified_time" content="2024-08-11T03:42:19.909Z">
 <meta property="article:author" content="Cranky Dove">
 <meta property="article:tag" content="Csharp">
 <meta name="twitter:card" content="summary_large_image">
@@ -304,7 +304,7 @@
 <h3 id="3，文档注释（用于解释方法或类的作用）"><a href="#3，文档注释（用于解释方法或类的作用）" class="headerlink" title="3，文档注释（用于解释方法或类的作用）"></a>3，文档注释（用于解释方法或类的作用）</h3><p>一种xml文档格式的注释方法。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment"><span class="hljs-doctag">///</span><span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span>注释，解释该方法的作用</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span><span class="hljs-doctag">&lt;/summary&gt;</span></span><br></code></pre></td></tr></table></figure>
 <p>相关笔记：[[文档注释]] </p>
-<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>List（泛型集合）的常用方法</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>List（泛型集合）的常用方法</p>
 <ol>
 <li>List. Add(T item); 添加一个元素</li>
 <li><code>List. AddRange(IEnumerable&lt;T&gt; collection);</code> 添加一组元素</li>
@@ -316,8 +316,9 @@
 <li>List. Sort ()   默认是元素第一个字母按升序</li>
 </ol>
 <h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><p>json解析时可以使用C#官方提供的newtonjson库，一些典型的使用方式可在[[Newtonsoft.Json]]查看。</p>
-<h1 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h1><h2 id="驼峰命名法"><a href="#驼峰命名法" class="headerlink" title="![[驼峰命名法]]"></a>![[驼峰命名法]]</h2><h2 id="匈牙利记号法"><a href="#匈牙利记号法" class="headerlink" title="![[匈牙利记号法]]"></a>![[匈牙利记号法]]</h2><p>Pascal命名法：要求每个单词的首字母大写，其余字母小写，多用于给方法或类命名。</p>
-<h1 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h1><p>定义：转义符是一个 <code>\</code> +一个特殊字符，组成一个有特殊意义的字符<br><code>\r\n</code>：表示回车换行<br><code>\&quot;</code>：表示一个英文半角的双引号<br><code>\t</code>：表示一个tab键的空格<br><code>\b</code>：表示一个退格键，放到字符串的开头和结尾不起作用。<br><code>\\</code>：表示一个 <code>\</code></p>
+<h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p>![[驼峰命名法]]<br>![[匈牙利记号法]]</p>
+<p>Pascal命名法：要求每个单词的首字母大写，其余字母小写，多用于给方法或类命名。</p>
+<h2 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h2><p>定义：转义符是一个 <code>\</code> +一个特殊字符，组成一个有特殊意义的字符<br><code>\r\n</code>：表示回车换行<br><code>\&quot;</code>：表示一个英文半角的双引号<br><code>\t</code>：表示一个tab键的空格<br><code>\b</code>：表示一个退格键，放到字符串的开头和结尾不起作用。<br><code>\\</code>：表示一个 <code>\</code></p>
 <p> <code>@</code> 符号</p>
 <ul>
 <li>用在 <code>\</code> 前，取消其转义作用，使其表示一个 <code>\</code><br>  <code>@\</code></li>
